@@ -2,7 +2,7 @@
   "expo": {
     "name": "portfolio-expo",
     "slug": "portfolio-expo",
-    "owner": "portfolio-expo",
+    "owner": "arthurms",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -38,6 +38,18 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a3dd1026-71a4-452a-adc0-115a84689996"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a3dd1026-71a4-452a-adc0-115a84689996"
     }
   }
 }
