@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, Animated, Image, TouchableOpacity, Linking, Alert } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -19,7 +19,7 @@ export default function Home() {
   }, []);
 
  const handleBaixarCurriculo = async () => {
-    const url = "https://drive.google.com/file/d/1ZquWLY6dprRXGXwsaTU_rLAURcQ_TUnT/view?usp=sharing";
+    const url = "https://raw.githubusercontent.com/Arthurms-dev/portfolio-expo/master/assets/images/Curriculo%20-%20ARTHUR%20VIN%C3%8DCIUS%20MOREIRA%20DA%20SILVA%20(2026-PDF).pdf";
     try {
       const supported = await Linking.canOpenURL(url);
       if (supported) {
@@ -127,6 +127,48 @@ export default function Home() {
 
         <View style={styles.divider} />
 
+        <View style={styles.msSection}>
+          <View style={styles.msHeader}>
+            <MaterialIcons name="health-and-safety" size={28} color="#38BDF8" />
+            <Text style={styles.msTitle}>Ministério da Saúde</Text>
+          </View>
+          <Text style={styles.msSubtitle}>Transformação Digital e Operacional</Text>
+
+          <Text style={styles.msDescription}>
+            Atuo como o principal ponto de inovação do setor, focado em encontrar soluções tecnológicas para reduzir custos operacionais e otimizar o tempo das equipes.
+          </Text>
+
+          <View style={styles.msGrid}>
+            <View style={styles.msCard}>
+              <MaterialIcons name="memory" size={24} color="#0EA5E9" style={styles.msCardIcon} />
+              <Text style={styles.msCardTitle}>Inovação & IA</Text>
+              <Text style={styles.msCardText}>Implementação de agentes inteligentes, automações e IA aplicada para reduzir drasticamente o tempo de execução de tarefas repetitivas.</Text>
+            </View>
+
+            <View style={styles.msCard}>
+              <MaterialIcons name="dashboard" size={24} color="#0EA5E9" style={styles.msCardIcon} />
+              <Text style={styles.msCardTitle}>Fullstack & BI</Text>
+              <Text style={styles.msCardText}>Desenvolvimento de sistemas e dashboards gerenciais em Power BI, com projetos técnicos de gestão em saúde reconhecidos em congressos (como o CPIIS).</Text>
+            </View>
+
+            <View style={styles.msCard}>
+              <MaterialIcons name="account-balance" size={24} color="#0EA5E9" style={styles.msCardIcon} />
+              <Text style={styles.msCardTitle}>Gestão de Convênios</Text>
+              <Text style={styles.msCardText}>Acompanhamento administrativo e fiscalização de instrumentos e prestação de contas, dominando processos no SEI, BGSICONV e TransfereGov.</Text>
+            </View>
+
+            <View style={styles.msCard}>
+              <MaterialIcons name="support-agent" size={24} color="#0EA5E9" style={styles.msCardIcon} />
+              <Text style={styles.msCardTitle}>Suporte Integrado</Text>
+              <Text style={styles.msCardText}>Resolução ágil de problemas cotidianos de infraestrutura, desde hardwares a aplicativos, garantindo o funcionamento contínuo do setor.</Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={styles.divider} />
+
+        <View style={styles.divider} />
+
         <View style={styles.footerGrid}>
           <View style={styles.footerBlock}>
             <Text style={styles.footerLabel}>GRADUAÇÃO</Text>
@@ -150,6 +192,83 @@ export default function Home() {
             ))}
           </View>
         </View>
+
+        <View style={styles.divider} />
+
+        {/* SEÇÃO: CONTATO (FINAL) */}
+        <View style={styles.contactSection}>
+          <Text style={styles.contactHugeTitle}>Quer conversar, tem uma vaga, ou um projeto em mente?</Text>
+          <Text style={styles.contactSubtitle}>
+            O caminho mais direto é o e-mail! Também estou pelo LinkedIn e no GitHub.
+          </Text>
+
+          <View style={styles.divider} />
+
+          <Text style={styles.contactLabel}>E-MAIL</Text>
+          <View style={styles.emailRow}>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => Linking.openURL('mailto:arthurms707@gmail.com')}>
+              <Text style={styles.emailText}>arthurms707@gmail.com</Text>
+            </TouchableOpacity>
+            
+            <View style={styles.emailActions}>
+              <TouchableOpacity 
+                style={styles.actionButton} 
+                onPress={() => Alert.alert("E-mail copiado!", "arthurms707@gmail.com foi copiado para a área de transferência.")}
+              >
+                <MaterialIcons name="content-copy" size={20} color="#F8FAFC" />
+              </TouchableOpacity>
+              
+              <TouchableOpacity 
+                style={styles.actionButton} 
+                onPress={() => Linking.openURL('mailto:arthurms707@gmail.com')}
+              >
+                <MaterialIcons name="send" size={20} color="#F8FAFC" />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <View style={styles.divider} />
+
+          <View style={styles.socialGrid}>
+            <TouchableOpacity 
+              style={styles.socialCard} 
+              activeOpacity={0.7}
+              onPress={() => Linking.openURL('https://www.linkedin.com/in/arthur-vin%C3%ADcius-815080427/')}
+            >
+              <FontAwesome name="linkedin-square" size={24} color="#F8FAFC" style={styles.socialIcon} />
+              <View>
+                <Text style={styles.socialCardLabel}>LINKEDIN</Text>
+                <Text style={styles.socialCardValue}>in/arthur-vinícius</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={styles.socialCard} 
+              activeOpacity={0.7}
+              onPress={() => Linking.openURL('https://github.com/Arthurms-dev')}
+            >
+              <FontAwesome name="github" size={24} color="#F8FAFC" style={styles.socialIcon} />
+              <View>
+                <Text style={styles.socialCardLabel}>GITHUB</Text>
+                <Text style={styles.socialCardValue}>Arthurms-dev</Text>
+              </View>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={styles.socialCardWide} 
+              activeOpacity={0.7}
+              onPress={() => Linking.openURL('tel:+5581999944106')}
+            >
+              <MaterialIcons name="smartphone" size={24} color="#F8FAFC" style={styles.socialIcon} />
+              <View>
+                <Text style={styles.socialCardLabel}>TELEFONE</Text>
+                <Text style={styles.socialCardValue}>+55 81 99994-4106</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={{ height: 60 }} />
 
         <View style={{ height: 40 }} />
 
@@ -217,4 +336,65 @@ const styles = StyleSheet.create({
     borderRadius: 6 
   },
   techTagText: { color: '#38BDF8', fontSize: 13, fontWeight: '600' },
+
+  msSection: { marginTop: 10 },
+  msHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 8 },
+  msTitle: { color: '#F8FAFC', fontSize: 26, fontWeight: '900', letterSpacing: -0.5, marginLeft: 10 },
+  msSubtitle: { color: '#94A3B8', fontSize: 14, fontWeight: 'bold', letterSpacing: 1, marginBottom: 16 },
+  msDescription: { color: '#cbd5e1', fontSize: 15, lineHeight: 24, marginBottom: 24, textAlign: 'justify' },
+  
+  msGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: 16 },
+  msCard: { 
+    width: '47%',
+    backgroundColor: 'rgba(30, 41, 59, 0.4)', 
+    borderWidth: 1, 
+    borderColor: 'rgba(56, 189, 248, 0.2)',
+    borderRadius: 12, 
+    padding: 16 
+  },
+  msCardIcon: { marginBottom: 12 },
+  msCardTitle: { color: '#F8FAFC', fontSize: 15, fontWeight: 'bold', marginBottom: 8 },
+  msCardText: { color: '#94A3B8', fontSize: 13, lineHeight: 20 },
+
+  contactSection: { marginTop: 20 },
+  contactHugeTitle: { color: '#F8FAFC', fontSize: 38, fontWeight: '900', letterSpacing: -1.5, lineHeight: 44, marginBottom: 16 },
+  contactSubtitle: { color: '#94A3B8', fontSize: 16, lineHeight: 26 },
+  
+  contactLabel: { color: '#94A3B8', fontSize: 11, fontWeight: 'bold', letterSpacing: 1.5, marginBottom: 12 },
+  emailRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 },
+  emailText: { color: '#F8FAFC', fontSize: 24, fontWeight: 'bold', textDecorationLine: 'underline', textDecorationColor: '#38BDF8' },
+  
+  emailActions: { flexDirection: 'row', gap: 12 },
+  actionButton: { 
+    borderWidth: 1, 
+    borderColor: '#334155', 
+    padding: 10, 
+    borderRadius: 8, 
+    backgroundColor: 'rgba(30, 41, 59, 0.5)' 
+  },
+  
+  socialGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', gap: 12 },
+  socialCard: { 
+    width: '48%',
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    borderWidth: 1, 
+    borderColor: '#334155', 
+    borderRadius: 8, 
+    padding: 14,
+    backgroundColor: 'rgba(30, 41, 59, 0.3)'
+  },
+  socialCardWide: { 
+    width: '100%', 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    borderWidth: 1, 
+    borderColor: '#334155', 
+    borderRadius: 8, 
+    padding: 14,
+    backgroundColor: 'rgba(30, 41, 59, 0.3)'
+  },
+  socialIcon: { marginRight: 12 },
+  socialCardLabel: { color: '#94A3B8', fontSize: 10, fontWeight: 'bold', letterSpacing: 1, marginBottom: 4 },
+  socialCardValue: { color: '#F8FAFC', fontSize: 14, fontWeight: '600' }
 });
